@@ -19,4 +19,16 @@ describe("Icon", () => {
     const span = await screen.findByText("EUR");
     expect(span).toBeInTheDocument();
   });
+
+  it("applies the className prop to the img element", async () => {
+    render(<Icon currency="EUR" className="testClass" />);
+    const img = await screen.findByAltText("EUR");
+    expect(img).toHaveClass("testClass");
+  });
+
+  it("applies the size prop to the img element", async () => {
+    render(<Icon currency="EUR" size="2rem" />);
+    const img = await screen.findByAltText("EUR");
+    expect(img).toHaveStyle({ width: "2rem" });
+  });
 });

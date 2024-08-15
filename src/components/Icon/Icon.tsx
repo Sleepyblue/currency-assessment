@@ -3,6 +3,8 @@ import styles from "./Icon.module.css";
 
 export interface IconProps {
   currency: string;
+  className?: string;
+  size?: string | number;
 }
 
 interface State {
@@ -42,7 +44,11 @@ const loadImage = async (
   }
 };
 
-const Icon: React.FC<IconProps> = ({ currency }) => {
+const Icon: React.FC<IconProps> = ({
+  className,
+  currency,
+  size = "1.25rem",
+}) => {
   const [state, setState] = useState<{ imageSrc?: string; bgColor: string }>({
     imageSrc: undefined,
     bgColor: "",
@@ -59,9 +65,17 @@ const Icon: React.FC<IconProps> = ({ currency }) => {
   }, [currency]);
 
   return state.imageSrc ? (
-    <img src={state.imageSrc} alt={currency} />
+    <img
+      src={state.imageSrc}
+      alt={currency}
+      className={`${className} ${styles.currencyLogo}`}
+      style={{ width: size }}
+    />
   ) : (
-    <span className={styles.noIcon} style={{ backgroundColor: state.bgColor }}>
+    <span
+      className={`${className} ${styles.noIcon}`}
+      style={{ backgroundColor: state.bgColor, width: size }}
+    >
       <p>{currency}</p>
     </span>
   );

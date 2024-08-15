@@ -1,10 +1,13 @@
+.currencyLogo {
+  aspect-ratio: 1/1;
+}
+
 .noIcon {
-  width: 2.5rem;
-  height: 2.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1/1;
 
   p {
     font-size: 0.75rem;
