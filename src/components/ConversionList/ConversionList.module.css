@@ -33,3 +33,9 @@
     }
   }
 }
+
+.noInput {
+  font-size: 0.75rem;
+  color: var(--primary-variant-n04);
+  margin-top: 0.5rem;
+}

@@ -13,7 +13,7 @@ const ConversionList: React.FC<ConversionListProps> = ({ userInput, data }) => {
   const debouncedUserInput = useDebounce(Number(userInput), 500);
 
   if (!debouncedUserInput) {
-    return <p>Enter an amount to check the rates</p>;
+    return <p className={styles.noInput}>Enter an amount to check the rates</p>;
   }
 
   return (

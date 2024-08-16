@@ -7,7 +7,7 @@
   max-width: 500px;
   padding: 1.25rem;
 
-  > p {
+  & > p:first-of-type {
     font-size: 1rem;
     color: var(--primary-variant-n04);
     text-align: center;

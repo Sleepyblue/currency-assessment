@@ -5,21 +5,14 @@ import ConversionList from "../ConversionList/ConversionList";
 import { CurrenciesEnum } from "../../types/types";
 import CurrencyInput from "../CurrencyInput/CurrencyInput";
 import styles from "./CurrencyWidget.module.css";
+import Spinner from "../Spinner/Spinner";
 
 function CurrencyWidget() {
   const [selectedCurrency, setSelectedCurrency] = useState<CurrenciesEnum>(
     CurrenciesEnum.USD
   );
-  const [userInput, setUserInput] = useState("0.00");
+  const [userInput, setUserInput] = useState("");
   const { data, isError, isLoading } = useTicker(selectedCurrency);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>Error loading data.</p>;
-  }
 
   return (
     <div className={styles.currencyWidget}>
@@ -35,7 +28,16 @@ function CurrencyWidget() {
           onCurrencyChange={setSelectedCurrency}
         />
       </div>
-      <ConversionList userInput={userInput} data={data} />
+      {isLoading ? (
+        <Spinner />
+      ) : isError ? (
+        <p>
+          🔒 Oops, we’re having trouble fetching the latest exchange rates.
+          Please try again in a moment!
+        </p>
+      ) : (
+        <ConversionList userInput={userInput} data={data} />
+      )}
     </div>
   );
 }
