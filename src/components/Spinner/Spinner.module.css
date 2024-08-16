@@ -1,0 +1,22 @@
+.spinnerWrapper {
+  padding-top: 6rem;
+  width: max-content;
+}
+
+.spinner {
+  border: 0.75rem solid var(--primary-variant-n02);
+  border-top: 0.75rem solid var(--primary-color-p06);
+  border-radius: 50%;
+  width: 3.75rem;
+  height: 3.75rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
