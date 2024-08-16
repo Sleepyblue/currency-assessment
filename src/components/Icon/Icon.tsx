@@ -69,7 +69,7 @@ const Icon: React.FC<IconProps> = ({
       src={state.imageSrc}
       alt={currency}
       className={`${className} ${styles.currencyLogo}`}
-      style={{ width: size }}
+      style={{ width: size, height: size }}
     />
   ) : (
     <span
