@@ -1,0 +1,50 @@
+.header {
+  max-width: 100vw;
+  padding: 2.5rem 3.75rem 0 3.75rem;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .left,
+  .center,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .left a {
+    text-decoration: none;
+    color: var(--primary-variant-n05);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .center img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+  }
+
+  .right button {
+    padding: 0.375rem 1.5rem;
+    background-color: var(--primary-color-p06);
+    color: var(--primary-color-n01);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .right button:hover {
+    background-color: var(--primary-variant-p07);
+  }
+
+  .right button:active {
+    transform: translateY(2px);
+  }
+}
