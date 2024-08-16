@@ -1,15 +1,16 @@
-import "./App.css";
+import styles from "./App.module.css";
 import CurrencyWidget from "./components/CurrencyWidget/CurrencyWidget";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className={styles.widgetWrapper}>
         <CurrencyWidget />
       </main>
-      <footer style={{ height: "200px" }}></footer>
+      <Footer />
     </>
   );
 }

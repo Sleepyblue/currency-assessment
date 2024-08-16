@@ -5,6 +5,7 @@
   justify-content: flex-start;
   gap: 1rem;
   max-width: 500px;
+  height: 740px;
   padding: 1.25rem;
 
   & > p:first-of-type {
