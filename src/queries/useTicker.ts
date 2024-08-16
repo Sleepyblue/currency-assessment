@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import SDK from "@uphold/uphold-sdk-javascript";
 import { CURRENCIES } from "../util/constants";
-import { CurrenciesEnum } from "../types/types";
+import { CurrenciesEnum, TickerData } from "../types/types";
 
 const sdk = new SDK({
   baseUrl: "http://localhost:3001/api",
@@ -15,10 +15,10 @@ const fetchTicker = async (currency: CurrenciesEnum) => {
 
   const data = otherCurrencies
     .map((curr) => {
-      const match = tickerData.find((item: any) =>
+      const match = tickerData.find((item: TickerData) =>
         item.currency.startsWith(curr)
       );
-      return match ? { currency: curr, ask: match.ask } : null;
+      return match ? { currency: curr, ask: Number(match.ask) } : null;
     })
     .filter(Boolean);
 
