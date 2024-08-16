@@ -23,10 +23,10 @@ const ConversionList: React.FC<ConversionListProps> = ({ userInput, data }) => {
           return (
             <li key={`${item.currency}-${index}`}>
               <p>{debouncedUserInput * item.ask}</p>
-              <div className="">
+              <div>
                 <Icon
                   currency={item.currency}
-                  size="1rem"
+                  size="1.5rem"
                   className={styles.icon}
                 />
                 <p>{item.currency}</p>

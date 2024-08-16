@@ -24,7 +24,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <button className={styles.dropdown} onClick={() => setIsOpen(!isOpen)}>
       <div>
-        <Icon className={styles.icon} currency={selectedCurrency} size="1rem" />
+        <Icon
+          className={styles.icon}
+          currency={selectedCurrency}
+          size="1.5rem"
+        />
         {selectedCurrency}
         <img
           src={DropdownIcon}
@@ -42,7 +46,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                 handleInvalidate();
               }}
             >
-              <Icon className={styles.icon} currency={currency} size="1rem" />
+              <Icon className={styles.icon} currency={currency} size="1.5rem" />
               {currency}
             </li>
           ))}

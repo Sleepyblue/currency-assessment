@@ -1,16 +1,31 @@
 .conversionList {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
 
   li {
     display: flex;
     justify-content: space-between;
 
+    > p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-color-n06);
+    }
+
     div {
       display: flex;
       gap: 0.5rem;
       align-items: center;
+
+      > p {
+        font-size: 0.75rem;
+        font-weight: 600;
+        width: 2rem;
+        color: var(--primary-color-n06);
+      }
     }
 
     .icon {

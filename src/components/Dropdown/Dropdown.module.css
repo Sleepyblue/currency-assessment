@@ -1,33 +1,34 @@
 .dropdown {
   position: relative;
-  font-size: 12px;
-  max-width: 88px;
+  font-size: 0.75rem;
+  max-width: 5.5rem;
   border: none;
   background: none;
 
   > div {
-    background-color: gainsboro;
+    background-color: var(--primary-color-n01);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4px;
-    padding: 6px 12px;
-    border-radius: 24px;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 1.5rem;
     width: 100%;
   }
 
   > ul {
     position: absolute;
-    top: calc(100% + 4px);
+    box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    top: calc(100% + 0.25rem);
     list-style: none;
-    gap: 8px;
+    gap: 0.5rem;
     display: flex;
     flex-direction: column;
-    background-color: gainsboro;
-    padding: 12px;
-    border-radius: 4px;
+    background-color: var(--primary-color-n01);
+    padding: 0.75rem;
+    border-radius: 0.375rem;
     width: 100%;
-    max-height: 120px;
+    max-height: 7.5rem;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -38,7 +39,7 @@
 
     li {
       display: flex;
-      gap: 8px;
+      gap: 0.5rem; /* 8px -> 0.5rem */
     }
   }
 }
