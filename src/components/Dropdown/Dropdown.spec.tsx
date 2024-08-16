@@ -1,25 +1,32 @@
 import { render, fireEvent, screen } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Dropdown from "./Dropdown";
 import { CurrenciesEnum } from "../../types/types";
+
+const queryClient = new QueryClient();
 
 describe("Dropdown", () => {
   const mockOnCurrencyChange = jest.fn();
 
   it("renders the component", () => {
     render(
-      <Dropdown
-        selectedCurrency={CurrenciesEnum.USD}
-        onCurrencyChange={mockOnCurrencyChange}
-      />
+      <QueryClientProvider client={queryClient}>
+        <Dropdown
+          selectedCurrency={CurrenciesEnum.USD}
+          onCurrencyChange={mockOnCurrencyChange}
+        />
+      </QueryClientProvider>
     );
   });
 
   it("opens and closes when clicked", () => {
     render(
-      <Dropdown
-        selectedCurrency={CurrenciesEnum.USD}
-        onCurrencyChange={mockOnCurrencyChange}
-      />
+      <QueryClientProvider client={queryClient}>
+        <Dropdown
+          selectedCurrency={CurrenciesEnum.USD}
+          onCurrencyChange={mockOnCurrencyChange}
+        />
+      </QueryClientProvider>
     );
     const dropdown = screen.getByRole("button");
     fireEvent.click(dropdown);
@@ -30,20 +37,24 @@ describe("Dropdown", () => {
 
   it("displays the correct currency icon and name", () => {
     render(
-      <Dropdown
-        selectedCurrency={CurrenciesEnum.USD}
-        onCurrencyChange={mockOnCurrencyChange}
-      />
+      <QueryClientProvider client={queryClient}>
+        <Dropdown
+          selectedCurrency={CurrenciesEnum.USD}
+          onCurrencyChange={mockOnCurrencyChange}
+        />
+      </QueryClientProvider>
     );
     expect(screen.getByText("USD")).toBeInTheDocument();
   });
 
   it("contains all the currencies in the dropdown list", () => {
     render(
-      <Dropdown
-        selectedCurrency={CurrenciesEnum.USD}
-        onCurrencyChange={mockOnCurrencyChange}
-      />
+      <QueryClientProvider client={queryClient}>
+        <Dropdown
+          selectedCurrency={CurrenciesEnum.USD}
+          onCurrencyChange={mockOnCurrencyChange}
+        />
+      </QueryClientProvider>
     );
     fireEvent.click(screen.getByRole("button"));
     expect(screen.getAllByRole("listitem")).toHaveLength(

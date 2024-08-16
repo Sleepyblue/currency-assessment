@@ -4,6 +4,7 @@ import Icon from "../Icon/Icon";
 import DropdownIcon from "../../assets/dropdown-icon.svg";
 import { CURRENCIES } from "../../util/constants";
 import { CurrenciesEnum } from "../../types/types";
+import { useQueryClient } from "@tanstack/react-query";
 
 export interface DropdownProps {
   selectedCurrency: string;
@@ -14,7 +15,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   selectedCurrency,
   onCurrencyChange,
 }) => {
+  const queryClient = useQueryClient();
   const [isOpen, setIsOpen] = useState(false);
+  const handleInvalidate = () => {
+    queryClient.invalidateQueries({ queryKey: ["ticker"] });
+  };
 
   return (
     <button className={styles.dropdown} onClick={() => setIsOpen(!isOpen)}>
@@ -30,7 +35,13 @@ const Dropdown: React.FC<DropdownProps> = ({
       {isOpen && (
         <ul>
           {CURRENCIES.map((currency) => (
-            <li key={currency} onClick={() => onCurrencyChange(currency)}>
+            <li
+              key={currency}
+              onClick={() => {
+                onCurrencyChange(currency);
+                handleInvalidate();
+              }}
+            >
               <Icon className={styles.icon} currency={currency} size="1rem" />
               {currency}
             </li>
