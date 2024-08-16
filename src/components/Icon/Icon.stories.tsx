@@ -3,7 +3,7 @@ import { StoryFn, Meta } from "@storybook/react";
 import Icon, { type IconProps } from "./Icon";
 
 export default {
-  title: "Atoms/Icon",
+  title: "Components/Icon",
   component: Icon,
 } as Meta;
 

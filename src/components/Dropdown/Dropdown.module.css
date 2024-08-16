@@ -1,0 +1,44 @@
+.dropdown {
+  position: relative;
+  font-size: 12px;
+  max-width: 88px;
+  border: none;
+  background: none;
+
+  > div {
+    background-color: gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 24px;
+    width: 100%;
+  }
+
+  > ul {
+    position: absolute;
+    top: calc(100% + 4px);
+    list-style: none;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    background-color: gainsboro;
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+    max-height: 120px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    li {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}

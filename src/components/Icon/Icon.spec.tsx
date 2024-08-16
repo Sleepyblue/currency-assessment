@@ -16,7 +16,7 @@ describe("Icon", () => {
 
   it("renders span when image cannot be imported", async () => {
     render(<Icon currency="EUR" />);
-    const span = await screen.findByText("EUR");
+    const span = await screen.findByTestId("icon-span");
     expect(span).toBeInTheDocument();
   });
 

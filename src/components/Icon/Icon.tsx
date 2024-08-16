@@ -74,10 +74,9 @@ const Icon: React.FC<IconProps> = ({
   ) : (
     <span
       className={`${className} ${styles.noIcon}`}
+      data-testid="icon-span"
       style={{ backgroundColor: state.bgColor, width: size }}
-    >
-      <p>{currency}</p>
-    </span>
+    />
   );
 };
 
