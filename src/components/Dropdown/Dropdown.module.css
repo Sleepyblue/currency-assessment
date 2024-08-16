@@ -5,6 +5,11 @@
   border: none;
   background: none;
 
+  > div:hover {
+    background-color: var(--primary-variant-n03);
+    cursor: pointer;
+  }
+
   > div {
     background-color: var(--primary-color-n01);
     display: flex;
@@ -21,17 +26,17 @@
     box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
     top: calc(100% + 0.25rem);
     list-style: none;
-    gap: 0.5rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--primary-color-n01);
-    padding: 0.75rem;
     border-radius: 0.375rem;
     width: 100%;
     max-height: 7.5rem;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    pointer-events: none;
 
     ::-webkit-scrollbar {
       display: none;
@@ -40,6 +45,15 @@
     li {
       display: flex;
       gap: 0.5rem; /* 8px -> 0.5rem */
+      pointer-events: all;
+      justify-content: center;
+      width: 100%;
+      padding: 0.5rem 0;
+
+      &:hover {
+        background-color: var(--primary-variant-n03);
+        cursor: pointer;
+      }
     }
   }
 }
