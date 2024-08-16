@@ -10,7 +10,15 @@ export interface ConversionListProps {
 }
 
 const ConversionList: React.FC<ConversionListProps> = ({ userInput, data }) => {
-  const debouncedUserInput = useDebounce(Number(userInput), 500);
+  const numericInput = Number(userInput);
+  const debouncedUserInput = useDebounce(numericInput, 500);
+
+  const sanitizeValue = (item: DataItem) => {
+    return (debouncedUserInput * item.ask)
+      .toString()
+      .slice(0, 8)
+      .replace(/\.$/, "");
+  };
 
   if (!debouncedUserInput) {
     return <p className={styles.noInput}>Enter an amount to check the rates</p>;
@@ -20,9 +28,10 @@ const ConversionList: React.FC<ConversionListProps> = ({ userInput, data }) => {
     <ul className={styles.conversionList}>
       {data?.map((item, index) => {
         if (item) {
+          const calculatedValue = sanitizeValue(item);
           return (
             <li key={`${item.currency}-${index}`}>
-              <p>{debouncedUserInput * item.ask}</p>
+              <p>{calculatedValue}</p>
               <div>
                 <Icon
                   currency={item.currency}
